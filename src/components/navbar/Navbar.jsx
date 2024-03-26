@@ -1,0 +1,33 @@
+import React from 'react'
+import "./navbar.scss"
+import { Link } from 'react-router-dom'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import { DarkModeOutlined, EmailOutlined, GridViewOutlined, NotificationsOutlined, PersonOutlined, SearchOutlined } from '@mui/icons-material';
+const Navbar = () => {
+  return (
+    <div className='navbar'>
+        <div className="left">
+            <Link to="/" style={{textDecoration:"none"}}>
+               <span>InstantPost</span></Link>
+               <HomeOutlinedIcon/>
+               <DarkModeOutlined/>
+               <GridViewOutlined/>
+               <div className="search">
+                <SearchOutlined/>
+                 <input type="text" placeholder='search...' />                   
+               </div>
+        </div>
+        <div className="right">
+            <PersonOutlined/>
+            <EmailOutlined/>
+            <NotificationsOutlined/>
+            <div className="user">
+                <img src="data:image/jpeg;base64,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" alt="" />
+                <span>Sonia</span>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Navbar

@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./navbar.scss"
 import { Link } from 'react-router-dom'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import { DarkModeOutlined, EmailOutlined, GridViewOutlined, NotificationsOutlined, PersonOutlined, SearchOutlined } from '@mui/icons-material';
+import { DarkModeOutlined, EmailOutlined, GridViewOutlined, NotificationsOutlined, PersonOutlined, SearchOutlined,WbSunnyOutlined } from '@mui/icons-material';
+import { DarkModeContext } from '../../context/DarkModeContext';
 const Navbar = () => {
+  const {toggle,darkMode}=useContext(DarkModeContext)
   return (
     <div className='navbar'>
         <div className="left">
             <Link to="/" style={{textDecoration:"none"}}>
                <span>InstantPost</span></Link>
                <HomeOutlinedIcon/>
-               <DarkModeOutlined/>
+              { darkMode?<WbSunnyOutlined onClick={toggle}/> :<DarkModeOutlined onClick={toggle}/>}
                <GridViewOutlined/>
                <div className="search">
                 <SearchOutlined/>
